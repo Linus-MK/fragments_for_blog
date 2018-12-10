@@ -1,0 +1,11 @@
+#/を含まない行（fileなど）
+#.gitignore以下の全サブディレクトリ下にあるこの名前のファイル or ディレクトリを無視する
+#末尾以外にのみ/を含む行（/file, /path/to/file, path/to/fileなど）
+#.gitignoreが置いてあるディレクトリをカレントディレクトリとする相対パスで指定されるファイル or ディレクトリを無視する
+#末尾だけ/な行（directory/など）
+#.gitignore以下の全サブディレクトリ下にあるこの名前のディレクトリを無視する
+#末尾以外にも末尾にも/を含む行（/directory/, /path/to/directory/, path/to/directory/など）
+#.gitignoreが置いてあるディレクトリをカレントディレクトリとする相対パスで指定されるディレクトリを無視する
+
+Debug/
+.vs/
