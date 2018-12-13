@@ -7,8 +7,8 @@
 
 int main()
 {
-	Board board;
 	Dice dice;
+	Board board(dice);
 
 	Player PlayerA("A", board, dice);
 	Player PlayerB("B", board, dice);

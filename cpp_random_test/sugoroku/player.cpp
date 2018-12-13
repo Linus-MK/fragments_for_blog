@@ -17,16 +17,16 @@ int Player::turn()
 
 	std::cout << name << "さんは" << num << "が出たので、" << position <<"に進みました\n";
 
-	if (board->HasEffect(position)) {
-		board->ApplyEffect(this);
-		std::cout << name << "さんは" << "盤面の効果により、" << position << "に移動しました\n";
-	}
 	if (position >= board->goal_position) {
 		std::cout << name << "さんの勝ちです\n";
 		has_ended = true;
 	}
-	
-	if (1)3;
+
+	if (board->HasEffect(position)) {
+		board->ApplyEffect(this);
+	}
+	// 改めてゴール判定はしない：3マス進んでゴールに行くことは無いことを暗黙裏に仮定
+	// 改めて効果判定はしない：効果マスで進んだり戻ったりした先が効果マスでないことを暗黙裏に仮定
 
 	return 0;
 }

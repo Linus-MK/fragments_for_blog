@@ -14,7 +14,9 @@ public:
 
 class Board {
 public:
-	Board();
+	Dice * dice;
+
+	Board(Dice& dice_);
 	bool HasEffect(int position);
 	int ApplyEffect(Player * p);
 
