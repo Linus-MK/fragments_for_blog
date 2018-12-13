@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple_random_lib", "simple_random_lib\simple_random_lib.vcxproj", "{CC7871BF-7D4A-427B-B89F-903ED1B735A4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sugoroku", "sugoroku\sugoroku.vcxproj", "{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{CC7871BF-7D4A-427B-B89F-903ED1B735A4}.Release|x64.Build.0 = Release|x64
 		{CC7871BF-7D4A-427B-B89F-903ED1B735A4}.Release|x86.ActiveCfg = Release|Win32
 		{CC7871BF-7D4A-427B-B89F-903ED1B735A4}.Release|x86.Build.0 = Release|Win32
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Debug|x64.ActiveCfg = Debug|x64
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Debug|x64.Build.0 = Debug|x64
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Debug|x86.Build.0 = Debug|Win32
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Release|x64.ActiveCfg = Release|x64
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Release|x64.Build.0 = Release|x64
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Release|x86.ActiveCfg = Release|Win32
+		{EA16A8CD-E84C-471F-91B5-CB7F1D682FC1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
