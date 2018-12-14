@@ -3,9 +3,9 @@
 #include <time.h>
 
 void Dice::init() {
-	srand((unsigned)time(NULL));
 }
 
 int Dice::cast() {
-	return rand() % 6 + 1;
+
+	return dist1(engine);
 }

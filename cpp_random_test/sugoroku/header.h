@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <random>
 
 class Player;
 
@@ -10,6 +11,9 @@ public:
 	int cast();
 	Dice() { init(); }
 
+	std::random_device seed_gen;
+	std::default_random_engine engine{ seed_gen() };
+	std::uniform_int_distribution<> dist1{1,6};
 };
 
 class Board {
