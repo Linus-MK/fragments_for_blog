@@ -2,6 +2,12 @@
 #include "header.h"
 #include <time.h>
 
+Dice::Dice():
+	engine(seed_gen()),
+	dist1(1,6)
+{
+}
+
 void Dice::init() {
 }
 

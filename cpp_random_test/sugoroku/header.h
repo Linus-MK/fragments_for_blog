@@ -9,11 +9,11 @@ class Dice {
 public:
 	void init();
 	int cast();
-	Dice() { init(); }
+	Dice();
 
 	std::random_device seed_gen;
-	std::default_random_engine engine{ seed_gen() };
-	std::uniform_int_distribution<> dist1{1,6};
+	std::default_random_engine engine;
+	std::uniform_int_distribution<> dist1;
 };
 
 class Board {
