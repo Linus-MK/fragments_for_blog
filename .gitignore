@@ -7,5 +7,10 @@
 #末尾以外にも末尾にも/を含む行（/directory/, /path/to/directory/, path/to/directory/など）
 #.gitignoreが置いてあるディレクトリをカレントディレクトリとする相対パスで指定されるディレクトリを無視する
 
+# ディレクトリ
 Debug/
 .vs/
+.ipynb_checkpoints/
+
+# ファイル
+*.csv
