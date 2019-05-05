@@ -22,3 +22,14 @@ print(q4*(2**14) + q5*(2**11))
 
 print("\n\n")
 
+
+a = 3
+b = 5
+x1 = a << 8 + b << 4
+print("x1={}".format(x1))
+
+x2 = (a << 8) + (b << 4)
+print("x2={}".format(x2))
+
+x3 = a * 2 ** 8 + b * 2 ** 4
+print("x3={}".format(x3))
