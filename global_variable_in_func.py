@@ -13,6 +13,10 @@ def bipartite_matching():
 	return 
 
 V = 5
-match = [-1] * V #マッチングのペア
+match = [-2] * V #マッチングのペア
 
 bipartite_matching()
+print(match) # dfs関数によって、書き換わっている
+
+# 疑問1 dfs関数の中のmatchはグローバル変数を指しているっぽい。それはどうして? 関数呼び出しを順にたどるならbipartite_matchingの中のmatchじゃないか?
+# 疑問2 dfs関数の中のmatchはグローバル変数を指しているっぽい。それはどうして? あとで値の代入が発生しているならローカル変数じゃないか?
