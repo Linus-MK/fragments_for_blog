@@ -1,4 +1,5 @@
 def lower_func(v):
+	global match
 	w = match[v]
 	if(w < 0):
 		match[v] = v+1
@@ -7,6 +8,7 @@ def lower_func(v):
 	return True
 
 def higher_func():
+	global match
 	match = [-1] * V
 	for v in range(V):
 		lower_func(v)
