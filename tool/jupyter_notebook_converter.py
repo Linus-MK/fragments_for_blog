@@ -1,8 +1,6 @@
 # jupyter notebookをmarkdownに変換する
 
 # 残り：
-# コードと出力を一緒のセットにする
-# コードと出力の間に区切り線を入れる
 # notebook中のmarkdownに対応する
 # htmlによるpandas.DataFrameが来たらエラーを返す
 # argparseか関数引数で入出力ファイル名を作る
@@ -27,15 +25,26 @@ for line in in_f:
         out_f.write('\n')
         
     elif status == 'code' and line_chomped == '```':
-        status = 'none'
-    elif status == 'none' and line_chomped[:4] == '    ':
-        status = 'output'
+        status = 'suspend'
+        # コードが終わった状態。
+        # 次に（実行結果なしで）別のコードが来るのか、コードの実行結果が来るのか、markdownが来るのかこの時点では不明
+        # この時点で、コード終わりの```は出力しない。
+    elif status == 'suspend' and (line_chomped == '```python' or line_chomped == '```py'):
+        status = 'code'
+        # コードが終わって、実行結果なしで、別のコードが来た状態。
         out_f.write('```\n')
+        out_f.write('\n')
+
+    elif status == 'suspend' and line_chomped[:4] == '    ':
+        status = 'output'
+        out_f.write('# --------------------\n')
     elif status == 'output' and line == '\n':
         status = 'none'
         out_f.write('```\n')
 
     if line == '\n':
+        pass
+    elif status == 'suspend':
         pass
     elif status == 'output':
         # 最初4文字の空白を削除して出力
