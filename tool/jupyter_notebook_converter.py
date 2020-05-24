@@ -3,7 +3,7 @@
 # 残り：
 # notebook中のmarkdownに対応する
 # htmlによるpandas.DataFrameが来たらエラーを返す
-# argparseか関数引数で入出力ファイル名を作る
+# argparseか関数引数で入出力ファイル名を指定できるようにする
 
 # 入力ファイルの形式は以下の通り。htmlによるpandas.DataFrameには対応しない。
 # ```python
@@ -28,7 +28,7 @@ for line in in_f:
         status = 'suspend'
         # コードが終わった状態。
         # 次に（実行結果なしで）別のコードが来るのか、コードの実行結果が来るのか、markdownが来るのかこの時点では不明
-        # この時点で、コード終わりの```は出力しない。
+        # この時点では、コード終わりの```を出力しない。次に実行結果が来たら一緒のコードブロックに入れたいから。
     elif status == 'suspend' and (line_chomped == '```python' or line_chomped == '```py'):
         status = 'code'
         # コードが終わって、実行結果なしで、別のコードが来た状態。
@@ -37,6 +37,8 @@ for line in in_f:
 
     elif status == 'suspend' and line_chomped[:4] == '    ':
         status = 'output'
+        # コードが終わって、実行結果が来た状態。
+        # コードと実行結果との区切りを出力する。
         out_f.write('# --------------------\n')
     elif status == 'output' and line == '\n':
         status = 'none'
