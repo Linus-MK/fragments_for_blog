@@ -3,7 +3,6 @@
 # 残り：
 # notebook中のmarkdownに対応する
 # htmlによるpandas.DataFrameが来たらエラーを返す
-# argparseか関数引数で入出力ファイル名を指定できるようにする
 
 # 入力ファイルの形式は以下の通り。htmlによるpandas.DataFrameには対応しない。
 # ```python
@@ -12,9 +11,16 @@
 #     4字のインデントで
 #     出力結果
 
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("input_file", help="input file name. (markdown)")
+parser.add_argument("output_file", help="output file name. if it exist already, the file is overritten.")
+args = parser.parse_args()
+
 # ファイルオープン
-in_f = open('input.md', 'r')
-out_f = open('output.md', 'w')
+in_f = open(args.input_file, 'r')
+out_f = open(args.output_file, 'w')
 status = 'none'
 
 for line in in_f:
@@ -53,3 +59,8 @@ for line in in_f:
         out_f.write(line[4:])
     else:
         out_f.write(line)
+
+# suspend状態のままファイルが終わると、コードブロックを閉じていないので、最後に閉じる
+
+if status == 'suspend':
+    out_f.write('```\n')
