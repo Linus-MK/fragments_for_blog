@@ -4,13 +4,18 @@
 # notebook中のmarkdownに対応する
 # htmlによるpandas.DataFrameが来たらエラーを返す
 
+# 仕様：
+# markdown中の空行は削除している
+# markdown中にコードブロック```code``` や4字インデントが来た場合の動作は保証外
+
 # 入力ファイルの形式は以下の通り。htmlによるpandas.DataFrameには対応しない。
 # ```python
 # 入力コード
 # ```
 #     4字のインデントで
 #     出力結果
-
+# markdown部分はの開始終了を示すサインは無いです。
+# コードブロック周囲に改行が無いとレイアウトが崩れるので、markdownの開始終了で1行改行することにしときます。
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -49,6 +54,16 @@ for line in in_f:
     elif status == 'output' and line == '\n':
         status = 'none'
         out_f.write('```\n')
+
+    elif status == 'suspend' and line_chomped != '':
+        status = 'markdown'
+        out_f.write('```\n')
+        out_f.write('\n')  # コードブロックとmarkdown境界の改行
+
+    elif status == 'markdown' and line_chomped == '':
+        status = 'none'
+        # markdown中の改行でもnoneに戻っちゃうけど、実害はないはず……
+
 
     if line == '\n':
         pass
