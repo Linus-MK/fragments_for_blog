@@ -3,6 +3,7 @@
 # 残り：
 # notebook中のmarkdownに対応する
 # htmlによるpandas.DataFrameが来たらエラーを返す
+# 出力がエラーメッセージの場合にうまく行かないので直せたら直す。
 
 # 仕様：
 # markdown中の空行は削除している
@@ -50,7 +51,9 @@ for line in in_f:
         status = 'output'
         # コードが終わって、実行結果が来た状態。
         # コードと実行結果との区切りを出力する。
+        out_f.write('\n')
         out_f.write('# --------------------\n')
+        out_f.write('\n')
     elif status == 'output' and line == '\n':
         status = 'none'
         out_f.write('```\n')
