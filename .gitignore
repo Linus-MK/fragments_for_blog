@@ -15,3 +15,5 @@ Debug/
 # ファイル
 *.csv
 tool/*.md
+tool/*/*.md
+*.png
