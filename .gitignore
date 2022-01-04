@@ -17,3 +17,9 @@ Debug/
 tool/*.md
 tool/*/*.md
 *.png
+
+# 仮想環境
+env/
+venv/
+*venv/
+# kivy_venvディレクトリを作ったので
