@@ -17,6 +17,7 @@ Debug/
 tool/*.md
 tool/*/*.md
 *.png
+*.parquet
 
 # 仮想環境
 env/
