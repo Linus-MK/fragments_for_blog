@@ -24,3 +24,8 @@ env/
 venv/
 *venv/
 # kivy_venvディレクトリを作ったので
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
